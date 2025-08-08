@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhishGuard AI - Analizador de Phishing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>PhishGuard AI</h1>
+            <p class="subtitle">Su segunda opinión experta contra el phishing.</p>
+        </header>
+        <main>
+            <div class="analyzer">
+                <textarea id="email-content" placeholder="Pegue aquí el contenido completo del correo electrónico sospechoso..."></textarea>
+                <button id="analyze-button">Analizar Correo</button>
+            </div>
+            <div id="result-container" class="result-hidden">
+                <h2>Veredicto:</h2>
+                <div id="result-verdict" class="verdict"></div>
+                <h3>Detalles del Análisis:</h3>
+                <ul id="result-details"></ul>
+            </div>
+
+            <section id="pricing" class="pricing-section">
+                <h2>Planes y Precios</h2>
+                <div class="pricing-container">
+                    <div class="pricing-plan">
+                        <h3>Personal</h3>
+                        <div class="price">Gratis</div>
+                        <ul>
+                            <li>✓ 3 análisis por día</li>
+                            <li>✓ Análisis basado en IA</li>
+                            <li>✓ Soporte comunitario</li>
+                        </ul>
+                        <button class="btn-secondary" disabled>Su Plan Actual</button>
+                    </div>
+                    <div class="pricing-plan featured">
+                        <h3>Profesional</h3>
+                        <div class="price">$9.99<span class="price-period">/mes</span></div>
+                        <ul>
+                            <li>✓ Análisis ilimitados</li>
+                            <li>✓ Análisis de enlaces y archivos adjuntos (Próximamente)</li>
+                            <li>✓ Integración con Outlook/Gmail (Próximamente)</li>
+                            <li>✓ Soporte prioritario</li>
+                        </ul>
+                        <button id="pro-plan-button" class="btn-primary">Obtener Acceso Anticipado</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2025 PhishGuard AI. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
