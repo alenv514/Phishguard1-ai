@@ -5,12 +5,13 @@ const { GoogleGenerativeAI } = require('@google/generative-ai');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
+const app = express(); // <--- MOVIDO AQUÍ
+
 // --- Sirviendo el Frontend ---
 // Esto le dice a Express que sirva los archivos estáticos (html, css, js) desde el directorio actual
 app.use(express.static(__dirname)); 
 
 // 2. Inicializar la aplicación Express y la IA de Gemini
-const app = express();
 const port = process.env.PORT || 3000; // Render usará una variable de entorno PORT
 
 // Cargar la API Key de forma segura desde el archivo .env
