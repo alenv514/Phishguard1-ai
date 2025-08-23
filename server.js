@@ -12,8 +12,8 @@ app.set('trust proxy', 1); // Confía en el primer proxy (necesario para Render)
 // --- Configurar el limitador de peticiones ---
 const apiLimiter = rateLimit({
 	windowMs: 24 * 60 * 60 * 1000, // 24 horas
-	max: 5, // Límite de 5 peticiones por IP durante la ventana de tiempo
-	message: 'Has excedido el límite de 5 peticiones por día. Por favor, intenta de nuevo mañana.',
+	max: 3, // Límite de 3 peticiones por IP durante la ventana de tiempo
+	message: 'Has excedido el límite de 3 peticiones por día. Por favor, intenta de nuevo mañana.',
     standardHeaders: true, // Devuelve la información del límite en los headers `RateLimit-*`
 	legacyHeaders: false, // Deshabilita los headers `X-RateLimit-*`
 });
