@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const rateLimit = require('express-rate-limit');
 
 const app = express(); // <--- MOVIDO AQUÍ
+app.set('trust proxy', 1); // Confía en el primer proxy (necesario para Render)
 
 // --- Configurar el limitador de peticiones ---
 const apiLimiter = rateLimit({
