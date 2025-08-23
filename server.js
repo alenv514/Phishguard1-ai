@@ -10,9 +10,9 @@ const app = express(); // <--- MOVIDO AQUÍ
 
 // --- Configurar el limitador de peticiones ---
 const apiLimiter = rateLimit({
-	windowMs: 5 * 60 * 1000, // 5 minutos
-	max: 15, // Límite de 15 peticiones por IP durante la ventana de tiempo
-	message: 'Has excedido el límite de 15 peticiones en 5 minutos. Por favor, intenta de nuevo más tarde.',
+	windowMs: 24 * 60 * 60 * 1000, // 24 horas
+	max: 5, // Límite de 5 peticiones por IP durante la ventana de tiempo
+	message: 'Has excedido el límite de 5 peticiones por día. Por favor, intenta de nuevo mañana.',
     standardHeaders: true, // Devuelve la información del límite en los headers `RateLimit-*`
 	legacyHeaders: false, // Deshabilita los headers `X-RateLimit-*`
 });
