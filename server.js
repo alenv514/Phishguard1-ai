@@ -4,8 +4,18 @@ const express = require('express');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const rateLimit = require('express-rate-limit');
 
 const app = express(); // <--- MOVIDO AQUÍ
+
+// --- Configurar el limitador de peticiones ---
+const apiLimiter = rateLimit({
+	windowMs: 5 * 60 * 1000, // 5 minutos
+	max: 15, // Límite de 15 peticiones por IP durante la ventana de tiempo
+	message: 'Has excedido el límite de 15 peticiones en 5 minutos. Por favor, intenta de nuevo más tarde.',
+    standardHeaders: true, // Devuelve la información del límite en los headers `RateLimit-*`
+	legacyHeaders: false, // Deshabilita los headers `X-RateLimit-*`
+});
 
 // --- Sirviendo el Frontend ---
 // Esto le dice a Express que sirva los archivos estáticos (html, css, js) desde el directorio actual
@@ -29,7 +39,7 @@ app.use(cors()); // Permite peticiones desde nuestro frontend
 app.use(bodyParser.json()); // Permite al servidor entender el JSON que envía el frontend
 
 // 4. Definir el Endpoint de Análisis
-app.post('/analyze', async (req, res) => {
+app.post('/analyze', apiLimiter, async (req, res) => {
     try {
         const { emailText } = req.body; // Obtener el texto del correo desde la petición
 
